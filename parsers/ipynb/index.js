@@ -4,8 +4,19 @@ class IPYNB {
   }
   async toJSON (file) {
     const body = await JSON.parse(file)
+    let tags = []
+    for (const cell of body.cells) {
+      if ('tags' in cell.metadata && cell.metadata.tags.length) {
+        for (const tag of cell.metadata.tags) {
+          tags.push(tag)
+        }
+      }
+    }
     return {
-      body
+      body,
+      title: body.metadata.title,
+      hidden: body.metadata.hidden,
+      tags: tags
     }
   }
 }
