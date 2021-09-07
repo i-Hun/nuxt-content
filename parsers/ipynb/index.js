@@ -18,7 +18,8 @@ class IPYNB {
       hidden: body.metadata.hidden,
       tags: tags,
       createdAt: body.metadata.createdAt,
-      thumbnail: body.metadata.thumbnail
+      thumbnail: body.metadata.thumbnail,
+      description: body.metadata.description
     }
   }
 }
